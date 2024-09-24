@@ -8,8 +8,22 @@
     <link rel="stylesheet" href="game_interface.css">
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <div id="game">
+    
+    <div id="game-container">
+        <h1>Tic Tac Toe</h1>
+
+        <!-- Scorecard -->
+        <div id="scorecard">
+            <div class="score playerX">
+                <p>Player X</p>
+                <span id="scoreX">0</span>
+            </div>
+            <div class="score playerO">
+                <p>Player O</p>
+                <span id="scoreO">0</span>
+            </div>
+        </div>
+
         <!-- Container for the Tic Tac Toe game board -->
         <div id="board">
             <!-- Each div represents a cell in the game grid -->
@@ -23,15 +37,12 @@
             <div class="cell" data-cell></div>
             <div class="cell" data-cell></div>
         </div>
-        <!-- Displaying game information like turn and score -->
-        <div id="info">
-            <p id="status">Player X's turn</p>
-            <div id="scorecard">
-                <!-- Displaying scores of both players -->
-                <p>Player X: <span id="scoreX">0</span></p>
-                <p>Player O: <span id="scoreO">0</span></p>
-            </div>
+
+        <!-- Status Message -->
+        <div id="status">
+            <p>Player X's turn</p>
         </div>
+        
         <!-- Button to reset the game -->
         <button id="reset">Reset Game</button>
     </div>

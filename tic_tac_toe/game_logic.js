@@ -58,16 +58,38 @@ function handleCellClick(e) {
 
     // Switch turns between 'X' and 'O' after checking for win and draw
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    updateStatus(currentPlayer);
     statusText.textContent = `Player ${currentPlayer}'s turn`;
 }
 
+function updateStatus() {
+    statusText.textContent = `Player ${currentPlayer}'s turn`;
+
+    // Highlight the current player in the scorecard
+    if (currentPlayer === 'X') {
+        document.querySelector('.playerX').classList.add('active');
+        document.querySelector('.playerO').classList.remove('active');
+    } else {
+        document.querySelector('.playerO').classList.add('active');
+        document.querySelector('.playerX').classList.remove('active');
+    }
+}
+
+
 // Function to check if current player won by checking if player has achieved any winning combinations
 function checkWin() {
-    return winningCombinations.some(combination => {
-        return combination.every(index => {
-            return board[index] === currentPlayer;
-        });
+    let won = winningCombinations.find(combination => {
+        return combination.every(index => board[index] === currentPlayer);
     });
+    
+    if (won) {
+        // Add a class to the winning cells to animate them
+        won.forEach(index => {
+            cells[index].classList.add('win');
+        });
+        return true;
+    }
+    return false;
 }
 
 // Function for updating score of winning player
