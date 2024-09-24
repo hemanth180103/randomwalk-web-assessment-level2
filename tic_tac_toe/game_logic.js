@@ -114,3 +114,6 @@ function resetGame() {
 // Attaching click event listeners to all cells and the reset button
 cells.forEach(cell => cell.addEventListener('click', handleCellClick));
 resetButton.addEventListener('click', resetGame);
+
+// Initialize the game with Player X's turn highlighted
+updateStatus();  // Call this at the start to highlight Player X
