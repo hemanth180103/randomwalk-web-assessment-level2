@@ -1,0 +1,83 @@
+/* Center the content, set font, and add background color */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #dde8ef;
+}
+
+/* Styling the game container and aligning elements centrally */
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Grid layout for the 3x3 game board */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 7px;
+}
+/* Styling each game cell */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #333;
+}
+
+/* Changing background color when hovering over a cell */
+.cell:hover {
+    background-color: #f9f9f9;
+}
+
+/* Styling the status text */
+#status {
+    font-size: 1.2rem;
+}
+
+/* Space between scorecard and the rest of the game */
+#scorecard {
+    margin-top: 10px;
+}
+
+/* Styling reset button */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Changing button background color when hovering */
+button:hover {
+    background-color: #555;
+}
+
+/* Media query for responsive design for smaller screens */
+@media (max-width: 600px) {
+    #board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    /* Adjusting size of cells and font for smaller screens */
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+}
